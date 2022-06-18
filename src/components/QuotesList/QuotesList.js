@@ -1,15 +1,10 @@
-import { useParams } from 'react-router-dom';
 import "./QuotesList.css";
-import { useState } from 'react';
+import QuoteItem from '../QuoteItem/QuoteItem';
 
-const QuotesList = () => {
-  const { id } = useParams();
-  const [quotesList, setQuotesList] = useState({});
-  
-
+const QuotesList = ({quotesList}) => {
   return (
     <div className="QuotesList">
-      <div>This is main page</div>
+      {Object.keys(quotesList).length !== 0 ? quotesList.map(quote => <QuoteItem quote={quote} key={quote.id}></QuoteItem>) : <div>No quotes found</div>}
     </div>
   );
 };
