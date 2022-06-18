@@ -1,24 +1,19 @@
-import logo from './logo.svg';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import QuotesList from "./components/QuotesList/QuotesList";
+import CreateQuote from "./components/CreateQuote/CreateQuote";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<QuotesList />} />
+        <Route path="/create" element={<CreateQuote />} />
+      </Route>
+    </Routes>
+   </BrowserRouter>
   );
 }
 
