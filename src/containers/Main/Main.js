@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axiosUrl from "../../axiosUrl";
 import QuotesList from "../../components/QuotesList/QuotesList";
 import { useParams } from "react-router-dom";
+import "./Main.css";
 
 const Main = () => {
   const [quotesList, setQuotesList] = useState({});
@@ -17,8 +18,6 @@ const Main = () => {
             const quotesArr = Object.keys(quotes.data).map((quoteId) => {
               return { id: quoteId, ...quotes.data[quoteId] };
             });
-            console.log("quotes in id:");
-            console.log(quotesArr);
             setQuotesList(quotesArr);
           }
         });
@@ -28,8 +27,6 @@ const Main = () => {
           const quotesArr = Object.keys(quotes.data).map((quoteId) => {
             return { id: quoteId, ...quotes.data[quoteId] };
           });
-          console.log("quotes in all:");
-          console.log(quotesArr);
           setQuotesList(quotesArr);
         }
       });
@@ -52,10 +49,10 @@ const Main = () => {
   };
 
   return (
-    <>
+    <div className="MainContainer">
       <CategoriesNavigation></CategoriesNavigation>
       <QuotesList quotesList={quotesList} deleteQuote={deleteQuote} />
-    </>
+    </div>
   );
 };
 

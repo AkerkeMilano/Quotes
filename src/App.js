@@ -12,7 +12,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Main />} />
           <Route path="/quotes/:id" element={<Main />} />
-          <Route path="/create" element={<CreateQuote />} />
+          <Route path="/add-quote" element={<CreateQuote />} />
           <Route path="/quotes/:id/edit" element={<EditQuote />} />
         </Route>
       </Routes>

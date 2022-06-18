@@ -5,7 +5,7 @@ const NavigationItems = () => {
   return (
     <ul className="NavigationItems">
         <NavigationItem to="/" end>Quotes</NavigationItem>
-        <NavigationItem to="/create">Submit new quote</NavigationItem>
+        <NavigationItem to="/add-quote">Submit new quote</NavigationItem>
     </ul>
   );
 };
