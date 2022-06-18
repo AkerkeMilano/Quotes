@@ -13,21 +13,31 @@ const CreateQuote = () => {
     category: categories[0].id
   });
 
+  const [isValid, setIsValid] = useState(true);
+
   const navigate = useNavigate();
+
   const selectCategory = (category) => {
     setNewQuote((v) => ({ ...v, category: category }))
   };
+
   const newQuoteHandler = (fieldName) => {
     return (e) => setNewQuote((v) => ({ ...v, [fieldName]: e.target.value }));
   };
 
   const createNewQuote = async () => {
-    try {
-      await axiosUrl.post(`/quotes.json`, newQuote);
-      navigate(`/quotes/${newQuote.category}`);
-    } catch (e) {
-      console.log(e);
+    if(newQuote.author.length > 0 && newQuote.content.length > 0){
+      try {
+        await axiosUrl.post(`/quotes.json`, newQuote);
+        navigate(`/quotes/${newQuote.category}`);
+      } catch (e) {
+        console.log(e);
+      }
+      setIsValid(true);
+    } else{
+      setIsValid(false);
     }
+
   };
   return (
     <div className="CreateQuote">
@@ -40,6 +50,7 @@ const CreateQuote = () => {
         quote={newQuote}
         quoteHandler={newQuoteHandler}
         onSubmit={createNewQuote}
+        isValid={isValid}
       ></CategoryForm>
     </div>
   );

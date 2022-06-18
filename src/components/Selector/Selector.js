@@ -1,3 +1,5 @@
+import "./Selector.css";
+
 const Selector = ({ quote, categoryList, selectCategory }) => {
   return (
     <div className="SelectCategory">
@@ -8,6 +10,7 @@ const Selector = ({ quote, categoryList, selectCategory }) => {
           selectCategory(e.target.value);
         }}
         value={quote?.category}
+        className="selector"
       >
         {categoryList.map((category) => (
           <option key={category.id + "id"} value={category.id}>{category.title}</option>

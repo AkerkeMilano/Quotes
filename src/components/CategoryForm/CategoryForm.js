@@ -1,6 +1,7 @@
 import "./CategoryForm.css";
+import submitIcon from "../../assets/img/submit.png";
 
-const CategoryForm = ({ quote, quoteHandler, onSubmit}) => {
+const CategoryForm = ({ quote, quoteHandler, onSubmit, isValid}) => {
   return (
         <form className="Form" onSubmit={(e) => {
             e.preventDefault();
@@ -24,8 +25,9 @@ const CategoryForm = ({ quote, quoteHandler, onSubmit}) => {
               onChange={quoteHandler("content")}
             ></textarea>
           </div>
+          {!isValid ? <div className="invalidInputs">*Please fill all the fields!</div> : ""}
           <button type="submit" className="form-btn">
-            Save
+            <img src={submitIcon} alt="Submit icon"/>
           </button>
         </form>
   );

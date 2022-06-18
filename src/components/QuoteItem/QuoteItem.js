@@ -4,7 +4,6 @@ import editIcon from "../../assets/img/edit.png";
 import deleteIcon from "../../assets/img/delete.png";
 
 const QuoteItem = ({ quote, deleteQuote }) => {
-
   return (
     <div className="QuoteItem">
       <div className="quote-information">
@@ -14,14 +13,17 @@ const QuoteItem = ({ quote, deleteQuote }) => {
       <div className="quote-actions">
         <Link to={`/quotes/${quote.id}/edit`}>
           <button className="actionBtn">
-            <img src={editIcon} alt="Edit"/>
+            <img src={editIcon} alt="Edit" />
           </button>
         </Link>
-        <button onClick={(e) => {
+        <button
+          onClick={(e) => {
             e.preventDefault();
-            deleteQuote(quote.id)
-        }} className="actionBtn">
-          <img src={deleteIcon} alt="Delete"/>
+            deleteQuote(quote.id);
+          }}
+          className="actionBtn"
+        >
+          <img src={deleteIcon} alt="Delete" />
         </button>
       </div>
     </div>

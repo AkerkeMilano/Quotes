@@ -1,0 +1,15 @@
+.SelectCategory{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.selector{
+    margin-right: 0;
+    font-size: inherit;
+    transition: width 200ms;
+    padding: 5px 5px 5px 7px;
+    border-radius: 5px;
+    color: #aaa;
+    border: 2px solid black;
+}

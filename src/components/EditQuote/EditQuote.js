@@ -40,7 +40,7 @@ const EditQuote = () => {
   };
   return (
     <div className="EditQuote">
-      <h2>Edit new quote</h2>
+      <h2>Edit a quote</h2>
       {Object.keys(currentQuote).length !== 0 ? (
         <div>
           <Selector
@@ -52,6 +52,7 @@ const EditQuote = () => {
             quote={currentQuote}
             quoteHandler={quoteChangeHandler}
             onSubmit={editQuote}
+            isValid={true}
           ></CategoryForm>
         </div>
       ) : (
