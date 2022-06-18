@@ -12,11 +12,15 @@ const EditQuote = () => {
   const [currentQuote, setCurrentQuote] = useState({});
 
   useEffect(() => {
-    axiosUrl.get(`./quotes/${id}.json`).then((quote) => {
-      if (quote.data) {
-        setCurrentQuote(quote.data);
-      }
-    });
+    try{
+      axiosUrl.get(`./quotes/${id}.json`).then((quote) => {
+        if (quote.data) {
+          setCurrentQuote(quote.data);
+        }
+      });
+    }catch(e){
+      console.log(e);
+    }
   }, [id]);
 
   const navigate = useNavigate();
@@ -39,26 +43,26 @@ const EditQuote = () => {
     }
   };
   return (
-    <div className="EditQuote">
-      <h2>Edit a quote</h2>
-      {Object.keys(currentQuote).length !== 0 ? (
-        <div>
-          <Selector
-            quote={currentQuote}
-            categoryList={categories}
-            selectCategory={selectCategory}
-          ></Selector>
-          <CategoryForm
-            quote={currentQuote}
-            quoteHandler={quoteChangeHandler}
-            onSubmit={editQuote}
-            isValid={true}
-          ></CategoryForm>
-        </div>
-      ) : (
-        ""
-      )}
-    </div>
+      <div className="EditQuote">
+        <h2>Edit a quote</h2>
+        {Object.keys(currentQuote).length !== 0 ? (
+          <div>
+            <Selector
+              quote={currentQuote}
+              categoryList={categories}
+              selectCategory={selectCategory}
+            ></Selector>
+            <CategoryForm
+              quote={currentQuote}
+              quoteHandler={quoteChangeHandler}
+              onSubmit={editQuote}
+              isValid={true}
+            ></CategoryForm>
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
   );
 };
 
