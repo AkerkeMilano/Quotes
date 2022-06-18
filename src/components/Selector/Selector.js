@@ -1,4 +1,4 @@
-const Selector = ({ categoryList, selectCategory }) => {
+const Selector = ({ quote, categoryList, selectCategory }) => {
   return (
     <div className="SelectCategory">
       <label htmlFor="category">Select category</label>
@@ -7,6 +7,7 @@ const Selector = ({ categoryList, selectCategory }) => {
         onChange={(e) => {
           selectCategory(e.target.value);
         }}
+        value={quote?.category}
       >
         {categoryList.map((category) => (
           <option key={category.id + "id"} value={category.id}>{category.title}</option>

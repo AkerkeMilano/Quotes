@@ -24,7 +24,7 @@ const CreateQuote = () => {
   const createNewQuote = async () => {
     try {
       await axiosUrl.post(`/quotes.json`, newQuote);
-      navigate(`/`);
+      navigate(`/quotes/${newQuote.category}`);
     } catch (e) {
       console.log(e);
     }
@@ -37,9 +37,9 @@ const CreateQuote = () => {
         selectCategory={selectCategory}
       ></Selector>
       <CategoryForm
-        newQuote={newQuote}
-        newQuoteHandler={newQuoteHandler}
-        createNewQuote={createNewQuote}
+        quote={newQuote}
+        quoteHandler={newQuoteHandler}
+        onSubmit={createNewQuote}
       ></CategoryForm>
     </div>
   );

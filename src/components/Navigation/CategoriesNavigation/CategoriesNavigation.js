@@ -7,7 +7,7 @@ const CategoriesNavigation = () => {
     <ul className="CategoriesNavigation">
       <NavigationItem to="/">All</NavigationItem>
       {categories.map((category) => (
-        <NavigationItem key={category.id} to={category.id}>
+        <NavigationItem key={category.id} to={`/quotes/${category.id}`}>
           {category.title}
         </NavigationItem>
       ))}
