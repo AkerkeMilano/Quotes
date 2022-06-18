@@ -1,6 +1,7 @@
 import "./QuoteItem.css";
+import { Link } from "react-router-dom";
+const QuoteItem = ({ quote, deleteQuote }) => {
 
-const QuoteItem = ({ quote }) => {
   return (
     <div className="QuoteItem">
       <div className="quote-information">
@@ -8,8 +9,13 @@ const QuoteItem = ({ quote }) => {
         <div>{quote.author}</div>
       </div>
       <div className="quote-actions">
-        <button>Edit</button>
-        <button>Delete</button>
+        <Link to={`/quotes/${quote.id}/edit`}>
+          <button>Edit</button>
+        </Link>
+        <button onClick={(e) => {
+            e.preventDefault();
+            deleteQuote(quote.id)
+        }}>Delete</button>
       </div>
     </div>
   );
